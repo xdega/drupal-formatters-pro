@@ -1,0 +1,6 @@
+# Ignore common database dump files by extension
+*.mysql
+*.sql
+*.gz
+*.xz
+*.zip

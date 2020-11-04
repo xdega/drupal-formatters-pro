@@ -1,0 +1,32 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./
+      dockerfile: web.dockerfile
+    volumes:
+      - ./src:/var/www/html:cached
+    ports:
+      - "8080:80"
+  db:
+    image: mariadb
+    volumes:
+      - ./db:/var/mysql/backups:delegated
+      - ./init-sql:/docker-entrypoint-initdb.d
+    environment:
+      MYSQL_DATABASE: drupaldb
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_USER: drupal
+      MYSQL_PASSWORD: guest 
+    ports:
+      - "3306:3306"
+  pma:
+    image: phpmyadmin/phpmyadmin
+    environment:
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+      PHP_UPLOAD_MAX_FILESIZE: 1G
+      PHP_MAX_INPUT_VARS: 1G
+    ports:
+      - "8001:80"
