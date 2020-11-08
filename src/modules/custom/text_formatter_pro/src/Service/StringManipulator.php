@@ -9,6 +9,17 @@ namespace Drupal\text_formatter_pro\Service;
 class StringManipulator
 {
   /**
+   * Converts a String to Slug Format
+   * 
+   * @return string
+   *   String converted to Slug
+   */
+  public function slugify($str)
+  {
+    return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $str)));
+  }
+
+  /**
    * Converts a String to Rotation13
    * 
    * @return string
