@@ -20,7 +20,7 @@ class StringManipulator
     $output = "";
 
     foreach ($chars as $char) {
-      if (!preg_match('/^[A-Za-z0-9]+$/m', $char)) $output .= $char;
+      if (!preg_match('/^[A-Za-z]+$/m', $char)) $output .= $char;
 
       $ascii = ord($char);
       $isUppercase = ctype_upper($char);
