@@ -2,12 +2,33 @@
 
 namespace Drupal\text_formatter_pro\Service;
 
+use Drupal\Core\Config\ConfigFactory;
+
 /**
- * The StringManipulator Class is used to encapsulate functionality that
- * modifies strings.
+ * Class StringManipulator.
+ *
+ * @package Drupal\text_formatter_pro\Service
  */
 class StringManipulator
 {
+  /**
+   * Configuration Factory.
+   *
+   * @var \Drupal\Core\Config\ConfigFactoryInterface
+   */
+  protected $configFactory;
+
+  /**
+   * StringManipulator constructor.
+   *
+   * @param \Drupal\Core\Config\ConfigFactoryInterface $configFactoryService
+   *   The Drupal Config Factory service.
+   */
+  public function __construct(ConfigFactory $configFactory)
+  {
+    $this->configFactory = $configFactory;
+  }
+
   /**
    * Converts a String to Slug Format
    * 
@@ -16,6 +37,8 @@ class StringManipulator
    */
   public function slugify($str)
   {
+    $config = $this->configFactory->get("text_formatter_pro.settings");
+    $divider = $config->get("slug_divider");
     /*
       I am opting not to use a third-party package in order to simply create a 
       slug.
@@ -24,7 +47,7 @@ class StringManipulator
       in the composer.json at the Drupal project root, and then include it at
       the top of this file.
     */
-    return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', '-', $str)));
+    return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', $divider, $str)));
   }
 
   /**

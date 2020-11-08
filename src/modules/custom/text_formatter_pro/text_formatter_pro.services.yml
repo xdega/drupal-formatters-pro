@@ -1,3 +1,5 @@
 services:
   string_manipulator:
     class: '\Drupal\text_formatter_pro\Service\StringManipulator'
+    arguments:
+      - "@config.factory"
