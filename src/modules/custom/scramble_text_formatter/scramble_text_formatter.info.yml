@@ -1,6 +1,0 @@
-name: Scramble Text Formatter
-description: A silly formatter to scramble a text field.
-package: Custom
-type: module
-version: 0.1
-core: 8.x

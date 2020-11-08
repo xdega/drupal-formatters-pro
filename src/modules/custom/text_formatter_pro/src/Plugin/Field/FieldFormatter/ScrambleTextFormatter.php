@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\scramble_text_formatter\Plugin\Field\FieldFormatter;
+namespace Drupal\text_formatter_pro\Plugin\Field\FieldFormatter;
 
 use Drupal\Core\Field\FormatterBase;
 use Drupal\Core\Field\FieldItemListInterface;

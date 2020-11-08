@@ -1,0 +1,6 @@
+name: Text Formatter "Pro"
+description: A collection of cool text field formatters
+package: Custom
+type: module
+version: 0.1
+core: 8.x
