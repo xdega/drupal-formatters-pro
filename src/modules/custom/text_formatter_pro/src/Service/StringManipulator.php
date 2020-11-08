@@ -18,8 +18,7 @@ class StringManipulator
   {
     /*
       I am opting not to use a third-party package in order to simply create a 
-      slug. This is wildly unnecessary, time-consuming, and creates a dependency 
-      need with little gain if any.
+      slug.
 
       For clarity, if I were to use a third party dependency, I would include it
       in the composer.json at the Drupal project root, and then include it at
