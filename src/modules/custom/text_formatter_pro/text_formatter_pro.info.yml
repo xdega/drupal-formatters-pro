@@ -3,4 +3,6 @@ description: A collection of cool text field formatters
 package: Custom
 type: module
 version: 0.1
+configure: text_formatter_pro.config
 core: 8.x
+core_version_requirement: ^8 || ^9
