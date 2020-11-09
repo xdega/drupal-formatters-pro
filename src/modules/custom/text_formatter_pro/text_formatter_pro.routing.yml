@@ -1,0 +1,7 @@
+text_formatter_pro.config:
+  path: "/admin/config/text_formatter_pro"
+  defaults:
+    _form: '\Drupal\text_formatter_pro\Form\FormatterConfigForm'
+    _title: "Text Formatter Pro Configuration"
+  requirements:
+    _permission: "administer site configuration"
