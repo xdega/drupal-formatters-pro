@@ -58,7 +58,7 @@ class Rot13TextFormatter extends FormatterBase implements ContainerFactoryPlugin
     $elements = [];
 
     foreach ($items as $index => $item) {
-      $value = (string)$item->value;
+      $value = (string) $item->value;
       $result = $this->stringManipulator->rot13($value);
       $elements[$index] = ["#markup" => $result];
     }

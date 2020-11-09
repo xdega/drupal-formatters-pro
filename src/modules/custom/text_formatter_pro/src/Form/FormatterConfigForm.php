@@ -32,12 +32,12 @@ class FormatterConfigForm extends ConfigFormBase
     $form = parent::buildForm($form, $form_state);
     $config = $this->config('text_formatter_pro.settings');
 
-    $form['slug_divider'] = array(
+    $form['slug_divider'] = [
       '#type' => 'textfield',
       '#title' => $this->t('Slug Divider'),
       '#default_value' => $config->get('slug_divider'),
       '#required' => TRUE,
-    );
+    ];
 
     return $form;
   }
@@ -66,7 +66,6 @@ class FormatterConfigForm extends ConfigFormBase
 
   protected function getEditableConfigNames()
   {
-
     return ['text_formatter_pro.settings'];
   }
 }

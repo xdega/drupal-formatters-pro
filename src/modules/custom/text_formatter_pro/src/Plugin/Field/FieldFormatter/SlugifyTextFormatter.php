@@ -53,6 +53,7 @@ class SlugifyTextFormatter extends FormatterBase implements ContainerFactoryPlug
     );
   }
 
+  /** {@inheritdoc} */
   public function viewElements(FieldItemListInterface $items, $langcode)
   {
     $elements = [];

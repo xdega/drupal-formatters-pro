@@ -41,11 +41,11 @@ class StringManipulator
     $divider = $config->get("slug_divider");
     /*
       I am opting not to use a third-party package in order to simply create a 
-      slug.
+      slug without requiring a dependency.
 
-      For clarity, if I were to use a third party dependency, I would include it
-      in the composer.json at the Drupal project root, and then include it at
-      the top of this file.
+      If I were to use a third party dependency, I would include it in the 
+      composer.json at the Drupal project root, and then include it at the top 
+      of this file.
     */
     return strtolower(trim(preg_replace('/[^A-Za-z0-9-]+/', $divider, $str)));
   }
@@ -62,7 +62,9 @@ class StringManipulator
     $output = "";
 
     foreach ($chars as $char) {
-      if (!preg_match('/^[A-Za-z]+$/m', $char)) $output .= $char;
+      if (!preg_match('/^[A-Za-z]+$/m', $char)) {
+        $output .= $char;
+      }
 
       $ascii = ord($char);
       $isUppercase = ctype_upper($char);
@@ -70,7 +72,7 @@ class StringManipulator
 
       if ($char >= 'M' && $isUppercase || $char > 'm' && $isLowercase) {
         $output .= chr($ascii - 13);
-      } else if ($char <= 'M' && $isUppercase || $char < 'm' && $isLowercase) {
+      } elseif ($char <= 'M' && $isUppercase || $char < 'm' && $isLowercase) {
         $output .= chr($ascii + 13);
       }
     }
